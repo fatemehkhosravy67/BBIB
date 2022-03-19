@@ -1,0 +1,10 @@
+{% extends 'base.html'%}
+{% block title %}
+Result
+{% endblock %}
+
+{% block content %}
+{% for result in all_results%}
+    {{result}}
+{% endfor %}
+{% endblock %}

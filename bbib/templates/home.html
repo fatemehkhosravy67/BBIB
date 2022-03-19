@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+    <a href="{% url 'login' %}">Login</a>
+    {% if user.is_authenticated %}
+      Hello {{ user.username }}!
+      <p><a  href="{% url 'logout' %}">Logout User</a><br>
+      {% if user.is_staff %}
+        <a href="{% url 'accounts:signup' %}">Register User</a></p>
+        <a href="{% url 'accounts:data_entry' %}">Data Entry</a></p>
+        <a href="{% url 'accounts:result' %}">Result</a></p>
+      {% else %}
+        <a href="{% url 'accounts:result' %}">Result</a></p>
+      {% endif %}
+    {% endif %}
+{% endblock %}
